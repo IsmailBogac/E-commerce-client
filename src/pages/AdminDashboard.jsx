@@ -28,14 +28,14 @@ function AdminDashboard() {
     console.log(formData);
 
     try {
-      const token = localStorage.getItem("token"); 
+      const token = localStorage.getItem("token"); // login sonrası kaydettiğin token
       const res = await axios.post(
-        "http://localhost:8080/api/products",
+        "https://e-commerce-production-69a7.up.railway.app/api/products",
         formData,
         {
           headers: {
-            "Content-Type": "multipart/form-data", 
-            Authorization: `Bearer ${token}`, 
+            "Content-Type": "multipart/form-data", // ✅ ekle
+            Authorization: `Bearer ${token}`, // ✅ burası şart
           },
         }
       );

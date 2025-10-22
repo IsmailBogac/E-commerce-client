@@ -24,18 +24,17 @@ export default function AdminPanel() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/admin",
+        "https://e-commerce-production-69a7.up.railway.app/api/admin",
         adminData,
         {
           headers: {
-            "Content-Type": "multipart/form-data", // ✅ ekle
+            "Content-Type": "multipart/form-data",
           },
         }
       );
       console.log(res.data);
     } catch (err) {
       console.error("Admin kayıt hatası:", err);
-
     }
   };
   return (

@@ -17,7 +17,7 @@ function AdminLogin() {
     };
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/admin/login",
+        "https://e-commerce-production-69a7.up.railway.app/api/admin/login",
         adminLogin
       );
       localStorage.setItem("token", res.data.token);

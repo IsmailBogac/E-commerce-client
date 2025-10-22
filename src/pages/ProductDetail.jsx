@@ -12,7 +12,9 @@ function ProductDetail() {
   useEffect(() => {
     const fetchDetail = async () => {
       try {
-        const res = await axios.get(`http://localhost:8080/api/products/${id}`);
+        const res = await axios.get(
+          `https://e-commerce-production-69a7.up.railway.app/api/products/${id}`
+        );
         setProduct(res.data);
         console.log(res.data);
       } catch (err) {
@@ -27,7 +29,7 @@ function ProductDetail() {
   const addToCart = async () => {
     try {
       await axios.post(
-        "http://localhost:8080/api/cart/add",
+        "https://e-commerce-production-69a7.up.railway.app/api/cart/add",
         {
           productId: product._id,
           quantity: 1,

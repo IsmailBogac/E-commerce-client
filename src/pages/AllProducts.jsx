@@ -8,7 +8,9 @@ function AllProducts() {
   const [data, setData] = useState([]);
 
   const fetchAPI = async () => {
-    const response = await axios.get("http://localhost:8080/api/products");
+    const response = await axios.get(
+      "https://e-commerce-production-69a7.up.railway.app/api/products"
+    );
     console.log(response);
     setData(response.data);
   };

@@ -19,10 +19,12 @@ function UserRegistration() {
       address: addressRef.current.value,
     };
     try {
-      const res = await axios.post("http://localhost:8080/api/user", userData);
+      const res = await axios.post(
+        "https://e-commerce-production-69a7.up.railway.app/api/user",
+        userData
+      );
       console.log(res.data);
       console.log(userData);
-      
     } catch (err) {
       console.error("Kullanıcı kayıt hatası", err.message);
     }

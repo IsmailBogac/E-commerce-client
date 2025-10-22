@@ -9,9 +9,12 @@ function AdminProductTable() {
     const fetchAdmin = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:8080/api/admin/me", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const res = await axios.get(
+          "https://e-commerce-production-69a7.up.railway.app/api/admin/me",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         setAdmin(res.data);
       } catch (err) {
         console.error("Admin bilgisi alınamadı", err);

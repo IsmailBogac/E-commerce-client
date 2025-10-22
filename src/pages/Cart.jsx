@@ -9,9 +9,12 @@ function Cart() {
   const fetchCart = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:8080/api/cart", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "https://e-commerce-production-69a7.up.railway.app/api/cart",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setCart(res.data);
     } catch (err) {
       console.error("Sepet alınırken hata:", err);
@@ -27,7 +30,7 @@ function Cart() {
   const increaseItem = async (id) => {
     try {
       await axios.put(
-        `http://localhost:8080/api/cart/increase/${id}`,
+        `https://e-commerce-production-69a7.up.railway.app/api/cart/increase/${id}`,
         {},
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -42,7 +45,7 @@ function Cart() {
   const decreaseItem = async (id) => {
     try {
       await axios.put(
-        `http://localhost:8080/api/cart/decrease/${id}`,
+        `https://e-commerce-production-69a7.up.railway.app/api/cart/decrease/${id}`,
         {},
         {
           headers: {
@@ -60,9 +63,12 @@ function Cart() {
     console.log(cart);
   }, [cart]);
 
-  if (cart.length === 0) return <div className="my-5 container">
-    <p>Sepetiniz boş...</p>
-    </div>
+  if (cart.length === 0)
+    return (
+      <div className="my-5 container">
+        <p>Sepetiniz boş...</p>
+      </div>
+    );
 
   const total = cart.reduce(
     (sum, item) => sum + item.productId.price * item.quantity,
@@ -113,7 +119,9 @@ function Cart() {
         {cart.length === 0 ? (
           ""
         ) : (
-          <button className="btn btn-warning  ">Got to Pay <i className="bi bi-credit-card"></i></button>
+          <button className="btn btn-warning  ">
+            Got to Pay <i className="bi bi-credit-card"></i>
+          </button>
         )}
       </div>
     </>

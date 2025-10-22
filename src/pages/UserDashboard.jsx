@@ -9,9 +9,14 @@ function UserDashboard() {
   useEffect(() => {
     const fetcUser = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/api/user/me", {
-          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        });
+        const res = await axios.get(
+          "https://e-commerce-production-69a7.up.railway.app/api/user/me",
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
         setUser(res.data);
       } catch (err) {
         console.log("Kullanıc bilgisi bulunamadı", err);

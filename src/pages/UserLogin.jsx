@@ -15,14 +15,13 @@ function UserLogin() {
     };
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/user/login",
+        "https://e-commerce-production-69a7.up.railway.app/api/user/login",
         userLogin
       );
       console.log(res.data.token);
       navigate("/userdashboard");
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("role", "user");
-      
     } catch (err) {
       console.error(err);
     }
