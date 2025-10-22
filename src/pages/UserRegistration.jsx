@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function UserRegistration() {
   const navigate = useNavigate();
@@ -25,6 +26,13 @@ function UserRegistration() {
       );
       console.log(res.data);
       console.log(userData);
+
+      (nameRef.current.value = ""),
+        (emailRef.current.value = ""),
+        (passwordRef.current.value = ""),
+        (addressRef.current.value = ""),
+        toast.success("Kayıt Başarılı 👌");
+      navigate("/userlogin");
     } catch (err) {
       console.error("Kullanıcı kayıt hatası", err.message);
     }
